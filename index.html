@@ -2,10 +2,208 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Мой первый сайт</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Название Приложения — Описание в одну фразу</title>
+    <style>
+        /* Базовые стили в темных тонах (GameDev/Premium стиль) */
+        :root {
+            --bg-color: #0f172a;
+            --text-color: #f8fafc;
+            --accent-color: #6366f1; /* Индиго/Фиолетовый */
+            --accent-hover: #4f46e5;
+            --card-bg: #1e293b;
+            --whop-color: #ff5a5f; /* Фирменный цвет Whop */
+            --whop-hover: #e0484d;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Шапка сайта */
+        header {
+            padding: 30px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #334155;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+
+        /* Главный блок (Hero Section) */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #94a3b8;
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            transition: background 0.2s;
+        }
+
+        .cta-button:hover {
+            background-color: var(--accent-hover);
+        }
+
+        /* Блок с фичами / описанием */
+        .features {
+            padding: 60px 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .feature-card {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid #334155;
+        }
+
+        .feature-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--accent-color);
+        }
+
+        .feature-card p {
+            color: #94a3b8;
+        }
+
+        /* Секция покупки (Whop) */
+        .pricing {
+            padding: 80px 0;
+            text-align: center;
+            border-top: 1px solid #334155;
+        }
+
+        .pricing h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .pricing p {
+            color: #94a3b8;
+            margin-bottom: 40px;
+        }
+
+        /* Кнопка Whop */
+        .whop-button {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--whop-color);
+            color: white;
+            padding: 18px 45px;
+            border-radius: 30px; /* Скругленная футуристичная кнопка */
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 20px;
+            letter-spacing: 0.5px;
+            box-shadow: 0 10px 25px rgba(255, 90, 95, 0.3);
+            transition: all 0.2s ease;
+        }
+
+        .whop-button:hover {
+            background-color: var(--whop-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(255, 90, 95, 0.4);
+        }
+
+        /* Футер */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            color: #64748b;
+            font-size: 14px;
+            border-top: 1px solid #1e293b;
+        }
+    </style>
 </head>
 <body>
-    <h1>Привет, мир!</h1>
-    <p>Мой сайт на GitHub Pages работает.</p>
+
+    <div class="container">
+        <!-- Шапка -->
+        <header>
+            <div class="logo">🎮 AppName</div>
+        </header>
+
+        <!-- Главный экран -->
+        <section class="hero">
+            <h1>Ультимативное приложение для ваших задач</h1>
+            <p>Короткое, но мощное описание вашего Unity-приложения. Расскажите, какую главную проблему оно решает прямо сейчас.</p>
+            <a href="#purchase" class="cta-button">Узнать стоимость</a>
+        </section>
+
+        <!-- Описание возможностей -->
+        <section class="features">
+            <div class="feature-card">
+                <h3>⚡ Высокая скорость</h3>
+                <p>Поскольку вы знакомы с Unity, вы знаете толк в оптимизации. Опишите здесь техническое преимущество приложения.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🎨 Интуитивный UI</h3>
+                <p>Удобный интерфейс и отзывчивое управление, к которому пользователи привыкают с первых секунд взаимодействия.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🔄 Постоянные обновления</h3>
+                <p>Регулярный выход патчей, добавление новых функций и оперативная поддержка пользователей.</p>
+            </div>
+        </section>
+
+        <!-- Блок покупки (Whop) -->
+        <section id="purchase" class="pricing">
+            <h2>Получите полный доступ</h2>
+            <p>Присоединяйтесь к нашему закрытому сообществу и активируйте подписку через Whop прямо сейчас.</p>
+            
+            <!-- Замените '#' на вашу реальную ссылку на продукт в Whop -->
+            <a href="#" target="_blank" class="whop-button">Купить доступ на Whop</a>
+        </section>
+
+        <!-- Подвал -->
+        <footer>
+            <p>&copy; 2026 Caliperometry. Все права защищены.</p>
+        </footer>
+    </div>
+
 </body>
 </html>
