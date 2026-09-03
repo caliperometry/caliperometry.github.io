@@ -2,272 +2,645 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Caliperometry — Официальный сайт приложения</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Caliperometry · мобильное приложение</title>
+    <!-- Шрифты и базовые стили -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --bg-color: #0f172a;
-            --text-color: #f8fafc;
-            --accent-color: #38bdf8;
-            --card-bg: #1e293b;
-            --whop-color: #ff5a5f;
-            --whop-hover: #e0484d;
-            --border-color: #334155;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-
-        html { scroll-behavior: smooth; }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #fafcff;
+            color: #1e293b;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
         }
 
-        .wrapper {
-            max-width: 1100px;
+        .container {
+            max-width: 1120px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
-        /* Шапка по вашей схеме */
-        header {
-            padding: 20px 0;
+        /* Хедер */
+        .header {
+            padding: 20px 0 12px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+        }
+
+        .header-inner {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid var(--border-color);
+            justify-content: space-between;
         }
 
-        .logo { 
-            font-size: 22px; 
-            font-weight: bold; 
-            color: #fff; 
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 1.5rem;
+            letter-spacing: -0.02em;
+            color: #0f172a;
+        }
+
+        .logo-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(145deg, #2563eb, #1d4ed8);
+            border-radius: 12px;
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 600;
+            box-shadow: 0 8px 20px -8px rgba(37, 99, 235, 0.3);
+        }
+
+        .badge-beta {
+            background: #eef2ff;
+            color: #4338ca;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 100px;
+            letter-spacing: 0.3px;
+            margin-left: 4px;
+        }
+
+        .cta-header {
             display: flex;
             align-items: center;
             gap: 12px;
         }
-        .logo-img {
-            width: 32px;  
-            height: 32px;
-            object-fit: contain;
-        }
-        .nav-link { color: #94a3b8; text-decoration: none; font-size: 15px; font-weight: 500; }
-        .nav-link:hover { color: var(--accent-color); }
 
-        /* Сетка: Текст слева, телефон справа */
-        .hero {
-            padding: 60px 0;
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 50px;
-            align-items: start;
-        }
-
-        .hero-info h1 { font-size: 40px; margin-bottom: 20px; font-weight: 800; color: #fff; }
-        .hero-info p { font-size: 17px; color: #94a3b8; margin-bottom: 20px; }
-
-        /* Контейнер мокапа телефона */
-        .mockup-container { display: flex; justify-content: center; position: sticky; top: 40px; }
-        .phone-mockup {
-            width: 260px;
-            height: 530px;
-            background: #000;
-            border: 11px solid #334155;
-            border-radius: 38px;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.6);
-            overflow: hidden; 
-            position: relative;
-        }
-        
-        /* Слайдер скриншотов с плавной сменой */
-        .screenshot-slider {
-            width: 100%;
-            height: 100%;
-            position: relative;
-        }
-        .phone-screenshot {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0; 
-            transition: opacity 0.8s ease-in-out; /* Эффект Cross-Fade */
-        }
-        .phone-screenshot.active {
-            opacity: 1; 
-        }
-
-        /* Центрированный блок под линией для Google Play */
-        .download-section {
-            padding: 40px 0;
-            border-top: 1px solid var(--border-color);
-            text-align: center;
-        }
-
-        .google-play-badge {
+        .btn-google-play {
             display: inline-flex;
             align-items: center;
-            background-color: #000000;
-            color: #fff;
-            padding: 12px 32px;
-            border-radius: 8px;
+            gap: 8px;
+            background: #0f172a;
+            color: white;
+            padding: 10px 20px 10px 18px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.95rem;
             text-decoration: none;
-            border: 1px solid #475569;
-            transition: all 0.2s;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
-        .google-play-badge:hover {
-            border-color: var(--accent-color);
-            transform: translateY(-2px);
-            background-color: #05070c;
-        }
-        .gp-png-icon { width: 26px; height: 26px; margin-right: 14px; object-fit: contain; }
-        .badge-text { display: flex; flex-direction: column; text-align: left; }
-        .badge-text .top-txt { font-size: 10px; text-transform: uppercase; color: #94a3b8; letter-spacing: 0.5px; }
-        .badge-text .main-txt { font-size: 16px; font-weight: 700; line-height: 1.2; }
 
-        /* Раздел FAQ */
-        .faq-section {
-            padding: 40px 0;
-            max-width: 750px;
-            margin: 0 auto;
+        .btn-google-play:hover {
+            background: #1e293b;
+            transform: scale(1.02);
+            box-shadow: 0 8px 20px rgba(15, 23, 42, 0.2);
         }
-        .faq-item {
-            background-color: var(--card-bg);
-            margin-bottom: 12px;
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
+
+        .btn-google-play svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
         }
-        .faq-item summary {
-            padding: 18px 24px;
-            font-size: 17px;
-            font-weight: bold;
-            cursor: pointer;
-            outline: none;
-            user-select: none;
+
+        /* Герой */
+        .hero {
+            padding: 60px 0 40px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .hero-badge {
+            background: #dbeafe;
+            color: #1e4ed8;
+            font-weight: 600;
+            font-size: 0.8rem;
+            padding: 6px 16px 6px 14px;
+            border-radius: 40px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            width: fit-content;
+            letter-spacing: 0.2px;
+        }
+
+        .hero-badge span {
+            background: #2563eb;
+            color: white;
+            border-radius: 20px;
+            padding: 0px 8px;
+            font-size: 0.7rem;
+            line-height: 1.6;
+        }
+
+        h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            color: #0f172a;
+        }
+
+        h1 .highlight {
+            background: linear-gradient(145deg, #2563eb, #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            color: #475569;
+            max-width: 90%;
+            line-height: 1.6;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 16px 20px;
+            margin-top: 8px;
+        }
+
+        .btn-primary {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 14px 34px;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 8px 24px -6px rgba(37, 99, 235, 0.4);
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+            box-shadow: 0 14px 30px -8px rgba(37, 99, 235, 0.5);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #1e293b;
+            border: 1.5px solid #e2e8f0;
+            padding: 13px 28px;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-outline:hover {
+            border-color: #94a3b8;
+            background: #f8fafc;
+        }
+
+        /* Телефон-превью */
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .phone-mockup {
+            width: 100%;
+            max-width: 340px;
+            aspect-ratio: 9 / 19;
+            background: #0f172a;
+            border-radius: 48px;
+            padding: 12px;
+            box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+            transition: transform 0.3s ease;
+        }
+
+        .phone-mockup:hover {
+            transform: scale(1.02);
+        }
+
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: #f1f5f9;
+            border-radius: 36px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 16px;
+            background-image: radial-gradient(circle at 20% 30%, rgba(37, 99, 235, 0.06) 0%, transparent 60%);
+        }
+
+        .app-icon-large {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(145deg, #2563eb, #4f46e5);
+            border-radius: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: white;
+            box-shadow: 0 16px 30px -8px rgba(37, 99, 235, 0.4);
+            margin-bottom: 18px;
+        }
+
+        .phone-screen h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #0f172a;
+            letter-spacing: -0.02em;
+        }
+
+        .phone-screen p {
+            color: #475569;
+            font-size: 0.9rem;
+            margin-top: 6px;
+            text-align: center;
+        }
+
+        .phone-features {
+            margin-top: 20px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .phone-feature-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(2px);
+            padding: 8px 14px 8px 12px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #1e293b;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+
+        .phone-feature-item span:first-child {
+            background: #2563eb20;
+            padding: 4px 8px;
+            border-radius: 30px;
+            color: #2563eb;
+            font-weight: 700;
+            font-size: 0.7rem;
+        }
+
+        /* Секция фич */
+        .features {
+            padding: 60px 0 50px;
+            border-top: 1px solid #eef2f6;
+        }
+
+        .features-header {
+            text-align: center;
+            max-width: 640px;
+            margin: 0 auto 48px;
+        }
+
+        .features-header h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: #0f172a;
+        }
+
+        .features-header p {
+            color: #475569;
+            font-size: 1.1rem;
+            margin-top: 8px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 28px 24px;
+            border-radius: 28px;
+            box-shadow: 0 8px 30px -12px rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(0, 0, 0, 0.02);
+            transition: all 0.25s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -16px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 14px;
+            display: inline-block;
+        }
+
+        .feature-card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: #0f172a;
+        }
+
+        .feature-card p {
+            color: #64748b;
+            font-size: 0.95rem;
+        }
+
+        /* Скачать секция */
+        .download-cta {
+            background: #0f172a;
+            border-radius: 48px;
+            padding: 50px 40px;
+            margin: 40px 0 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+            background-image: radial-gradient(circle at 80% 20%, #1e293b, #0f172a 70%);
+            box-shadow: 0 24px 48px -20px rgba(15, 23, 42, 0.3);
+        }
+
+        .download-cta-text {
+            color: white;
+        }
+
+        .download-cta-text h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .download-cta-text p {
+            opacity: 0.7;
+            font-size: 1.05rem;
+            margin-top: 6px;
+        }
+
+        .btn-google-play-light {
+            background: white;
+            color: #0f172a;
+            padding: 14px 32px;
+            border-radius: 60px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.2s ease;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-google-play-light:hover {
+            background: #f1f5f9;
+            transform: scale(1.02);
+        }
+
+        .btn-google-play-light svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        /* Футер */
+        .footer {
+            border-top: 1px solid #e9edf2;
+            padding: 28px 0 32px;
             display: flex;
             justify-content: space-between;
-            align-items: center;
-        }
-        .faq-item summary::after { content: '+'; color: var(--accent-color); font-size: 20px; }
-        .faq-item[open] summary::after { content: '−'; color: var(--whop-color); }
-        .faq-content {
-            padding: 0 24px 24px 24px;
-            color: #cbd5e1;
-            font-size: 15px;
-            border-top: 1px solid #273549;
-            padding-top: 15px;
-        }
-
-        /* Большая красивая премиум секция Whop */
-        .premium-section {
-            padding: 60px 20px;
-            text-align: center;
-            border-top: 1px solid var(--border-color);
-            background: linear-gradient(180deg, #0f172a 0%, #17153b 100%);
-            border-radius: 16px;
-            margin: 40px 0;
-            border: 1px solid #1e1b4b;
-        }
-        .premium-section h2 { font-size: 32px; margin-bottom: 15px; font-weight: 800; }
-        .premium-section p { color: #94a3b8; margin-bottom: 35px; font-size: 16px; max-width: 600px; margin-left: auto; margin-right: auto; }
-        
-        .whop-button {
-            display: inline-block;
-            background-color: var(--whop-color);
-            color: white;
-            padding: 18px 50px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 18px;
-            transition: all 0.2s;
-            box-shadow: 0 10px 25px rgba(255, 90, 95, 0.3);
-        }
-        .whop-button:hover { 
-            transform: translateY(-2px); 
-            background-color: var(--whop-hover);
-            box-shadow: 0 12px 30px rgba(255, 90, 95, 0.5);
-        }
-
-        /* Подвал по новой схеме (Разнесено по краям) */
-        footer {
-            padding: 40px 0;
-            border-top: 1px solid #1e293b;
-            display: flex;
-            justify-content: space-between; /* Распихивает элементы по левому и правому краям */
-            align-items: center;
-        }
-        .footer-link {
+            flex-wrap: wrap;
+            gap: 16px;
             color: #64748b;
-            text-decoration: none;
-            font-size: 14px;
-            transition: color 0.2s;
-        }
-        .footer-link:hover {
-            color: var(--accent-color);
+            font-size: 0.9rem;
         }
 
-        @media (max-width: 768px) {
-            .hero { grid-template-columns: 1fr; text-align: center; padding: 30px 0; }
-            .mockup-container { order: -1; position: relative; top: 0; margin-bottom: 30px; }
-            .hero-info h1 { font-size: 32px; }
-            .phone-mockup { width: 230px; height: 470px; }
-            footer { flex-direction: column; gap: 15px; text-align: center; } /* На мобилках выстраиваем ссылки в столбик */
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-links a {
+            color: #475569;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .footer-links a:hover {
+            color: #0f172a;
+        }
+
+        /* Адаптив */
+        @media (max-width: 900px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content {
+                order: 1;
+                align-items: center;
+            }
+
+            .hero-visual {
+                order: 0;
+            }
+
+            .hero-description {
+                max-width: 100%;
+            }
+
+            .hero-actions {
+                justify-content: center;
+            }
+
+            .feature-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            h1 {
+                font-size: 2.6rem;
+            }
+
+            .phone-mockup {
+                max-width: 260px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header-inner {
+                flex-wrap: wrap;
+                gap: 12px;
+                justify-content: center;
+            }
+
+            .cta-header {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .btn-google-play {
+                padding: 8px 16px;
+                font-size: 0.85rem;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .download-cta {
+                flex-direction: column;
+                text-align: center;
+                padding: 40px 24px;
+            }
+
+            .footer {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="wrapper">
-        
-        <!-- Шапка -->
-        <header>
+    <header class="header">
+        <div class="container header-inner">
             <div class="logo">
-                <img src="images/logo-icon.png" alt="Logo" class="logo-img"> 
-                Caliperometry
+                <span class="logo-icon">C</span>
+                <span>Caliperometry <span class="badge-beta">beta</span></span>
             </div>
-            <a href="#faq" class="nav-link">FAQ</a>
-        </header>
+            <div class="cta-header">
+                <a href="https://play.google.com/store/apps/details?id=com.SitiusInc.Caliperometry" target="_blank" class="btn-google-play">
+                    <svg viewBox="0 0 512 512"><path d="M325.3 234.3L104.6 13.4C99.1 7.9 89.7 8.4 84.7 14.3L84.7 14.3C80.3 19.8 80.8 28.2 85.7 33.1L266.4 213.9L325.3 234.3zM104.6 498.6c-5.5 5.5-14.9 5.1-19.9-0.8L84.7 497.7c-5-5.9-4.5-14.3 0.9-19.2L213.9 352 325.3 277.7 104.6 498.6zM362.7 276.7L246.8 160.8 142.9 268.7l139.2 139.2 80.6-45.2c10.6-5.9 10.6-21.1 0-27.1l-0.1-0.1z"/></svg>
+                    Google Play
+                </a>
+            </div>
+        </div>
+    </header>
 
-        <!-- Презентация приложения -->
+    <main>
         <section class="hero">
-            <div class="hero-info">
-                <h1>Caliperometry: Fat Calculator</h1>
-                
-                <!-- Блок текстов механик -->
-                <p>Профессиональный инструмент для точного расчета процентного содержания подкожного жира методом калиперометрии. Отслеживайте динамику изменений и управляйте формой на основе проверенных научных формул.</p>
-                
-                <p>Приложение позволяет вам уйти от неточных напольных «умных» весов и использовать проверенные методы спортивной медицины. Измеряйте складки калипером, заносите данные в приложение и получайте чистую математику вашей физической формы.</p>
-                
-                <p>Поддержка формул Джексона-Поллока (на 3 и 7 точек), алгоритмов Сири, Брожека и Ложмана позволяет настроить расчеты индивидуально под ваш тип телосложения. Все данные визуализируются в удобные графики прогресса.</p>
-            </div>
-            
-            <!-- Мокап телефона со слайдером скриншотов -->
-            <div class="mockup-container">
-                <div class="phone-mockup">
-                    <div class="screenshot-slider">
-                        <!-- Ваши скриншоты в папке images -->
-                        <img src="images/screenshot1.png" alt="Скриншот 1" class="phone-screenshot active">
-                        <img src="images/screenshot2.png" alt="Скриншот 2" class="phone-screenshot">
-                        <img src="images/screenshot3.png" alt="Скриншот 3" class="phone-screenshot">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span>v1.2</span> • Только что обновили
+                    </div>
+                    <h1>
+                        Измеряйте <br><span class="highlight">точнее</span> с Caliperometry
+                    </h1>
+                    <p class="hero-description">
+                        Профессиональный инструмент для калиперометрии, антропометрии и анализа состава тела. Просто, быстро, научно.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="https://play.google.com/store/apps/details?id=com.SitiusInc.Caliperometry" target="_blank" class="btn-primary">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                            Скачать
+                        </a>
+                        <a href="#features" class="btn-outline">Узнать больше →</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="phone-mockup">
+                        <div class="phone-screen">
+                            <div class="app-icon-large">C</div>
+                            <h3>Caliperometry</h3>
+                            <p>Анализ тела · 3D-модель</p>
+                            <div class="phone-features">
+                                <div class="phone-feature-item"><span>✓</span> 7 точек измерения</div>
+                                <div class="phone-feature-item"><span>✓</span> Жировая масса</div>
+                                <div class="phone-feature-item"><span>✓</span> Тренды и графики</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Кнопка Гугл Плей по центру -->
-        <section class="download-section">
-            <a href="https://google.com" class="google-play-badge" target="_blank">
-                <img src="images/gp-icon.png" alt="Google Play" class="gp-png-icon">
-                <div class="badge-text">
-                    <span class="top-txt">Доступно в</span>
-                    <span class="main-txt">Google Play</span>
+        <section class="features" id="features">
+            <div class="container">
+                <div class="features-header">
+                    <h2>Всё, что нужно для точного анализа</h2>
+                    <p>Интуитивный интерфейс и профессиональные алгоритмы</p>
                 </div>
-            </a>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">📐</div>
+                        <h3>Калиперометрия</h3>
+                        <p>Измерение кожно-жировых складок по стандартам ISAK с автоматическим расчётом.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3>Динамика прогресса</h3>
+                        <p>Наглядные графики изменений, отслеживание трендов и экспорт данных.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🧬</div>
+                        <h3>Состав тела</h3>
+                        <p>Оценка мышечной и жировой массы, соматотип и рекомендации.</p>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <!-- Аккордеон список FAQ -->
-        <section class="faq-section" id="faq">
-            <details class="faq-item">
+        <section class="container">
+            <div class="download-cta">
+                <div class="download-cta-text">
+                    <h2>Готовы начать?</h2>
+                    <p>Установите Caliperometry и сделайте первый замер за 2 минуты.</p>
+                </div>
+                <a href="https://play.google.com/store/apps/details?id=com.SitiusInc.Caliperometry" target="_blank" class="btn-google-play-light">
+                    <svg viewBox="0 0 512 512"><path d="M325.3 234.3L104.6 13.4C99.1 7.9 89.7 8.4 84.7 14.3L84.7 14.3C80.3 19.8 80.8 28.2 85.7 33.1L266.4 213.9L325.3 234.3zM104.6 498.6c-5.5 5.5-14.9 5.1-19.9-0.8L84.7 497.7c-5-5.9-4.5-14.3 0.9-19.2L213.9 352 325.3 277.7 104.6 498.6zM362.7 276.7L246.8 160.8 142.9 268.7l139.2 139.2 80.6-45.2c10.6-5.9 10.6-21.1 0-27.1l-0.1-0.1z"/></svg>
+                    Google Play
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer container">
+        <span>© 2026 Sitius Inc. · Caliperometry</span>
+        <div class="footer-links">
+            <a href="#">Политика конфиденциальности</a>
+            <a href="#">Поддержка</a>
+            <a href="https://play.google.com/store/apps/details?id=com.SitiusInc.Caliperometry" target="_blank">Google Play</a>
+        </div>
+    </footer>
+</body>
+</html>
