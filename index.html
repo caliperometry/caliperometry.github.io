@@ -16,7 +16,7 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: #0f172a; /* графитовый синий */
+            background: #0f172a;
             color: #e9edf4;
             line-height: 1.5;
             -webkit-font-smoothing: antialiased;
@@ -117,7 +117,6 @@
             margin-top: 6px;
         }
 
-        /* ЕДИНСТВЕННАЯ КНОПКА GOOGLE PLAY */
         .btn-google-play {
             display: inline-flex;
             align-items: center;
@@ -144,7 +143,7 @@
             height: 22px;
         }
 
-        /* Телефон с каруселью */
+        /* ===== ТЕЛЕФОН — СКРИНШОТЫ БЕЗ ОТСТУПОВ ===== */
         .hero-visual {
             display: flex;
             justify-content: center;
@@ -169,26 +168,18 @@
         .phone-screen {
             width: 100%;
             height: 100%;
-            background: #111c2e;
+            background: #0a0f1a;
             border-radius: 34px;
             overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 16px 12px;
             position: relative;
+            padding: 0; /* Убираем все отступы */
         }
 
         .screenshot-carousel {
             width: 100%;
             height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
             position: relative;
-            border-radius: 28px;
+            border-radius: 34px;
             overflow: hidden;
         }
 
@@ -198,15 +189,10 @@
             left: 0;
             width: 100%;
             height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
             opacity: 0;
             transition: opacity 1.2s ease;
-            padding: 20px 12px;
-            background: #0f1a2b;
-            border-radius: 28px;
+            border-radius: 34px;
+            overflow: hidden;
         }
 
         .carousel-slide.active {
@@ -218,21 +204,28 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 24px;
+            display: block;
+            border-radius: 0; /* Убираем скругление, чтобы прилипало к рамкам */
         }
 
         .slide-dots {
             position: absolute;
             bottom: 16px;
+            left: 50%;
+            transform: translateX(-50%);
             display: flex;
             gap: 8px;
-            z-index: 5;
+            z-index: 10;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 6px 12px;
+            border-radius: 20px;
+            backdrop-filter: blur(4px);
         }
 
         .slide-dots span {
             width: 8px;
             height: 8px;
-            background: #334155;
+            background: rgba(255, 255, 255, 0.4);
             border-radius: 10px;
             display: block;
             transition: all 0.3s;
@@ -364,7 +357,7 @@
             padding: 0 24px 20px;
         }
 
-        /* ===== ПРЕМИУМ КНОПКА (БИРЮЗОВАЯ) ===== */
+        /* ===== ПРЕМИУМ КНОПКА ===== */
         .premium-cta {
             padding: 40px 0 32px;
             border-top: 1px solid rgba(255, 255, 255, 0.04);
@@ -497,7 +490,6 @@
     <header class="header">
         <div class="container header-inner">
             <div class="logo-block">
-                <!-- ВСТАВЬТЕ ВАШУ PNG ИКОНКУ -->
                 <img src="images/CaliperometryIcon.png" alt="Caliperometry icon" class="logo-icon-img">
                 <div class="logo-text">
                     Caliperometry <span>Fat Calculator</span>
@@ -518,7 +510,6 @@
                         Измеряйте кожно-жировые складки, анализируйте состав тела и отслеживайте прогресс с профессиональной точностью.
                     </p>
                     <div class="hero-actions">
-                        <!-- ЕДИНСТВЕННАЯ КНОПКА GOOGLE PLAY -->
                         <a href="https://play.google.com/store/apps/details?id=com.SitiusInc.Caliperometry" target="_blank" class="btn-google-play">
                             <img src="images/icon_google_play.png" alt="Google Play">
                             Доступно в Google Play
@@ -529,19 +520,19 @@
                     <div class="phone-mockup">
                         <div class="phone-screen">
                             <div class="screenshot-carousel">
-                                <!-- Слайд 1: ВСТАВЬТЕ ВАШ СКРИНШОТ 1 -->
+                                <!-- Слайд 1 -->
                                 <div class="carousel-slide active" data-index="0">
                                     <img src="images/Screenshot_1.jpg" alt="Скриншот 1">
                                 </div>
-                                <!-- Слайд 2: ВСТАВЬТЕ ВАШ СКРИНШОТ 2 -->
+                                <!-- Слайд 2 -->
                                 <div class="carousel-slide" data-index="1">
                                     <img src="images/Screenshot_2.jpg" alt="Скриншот 2">
                                 </div>
-                                <!-- Слайд 3: ВСТАВЬТЕ ВАШ СКРИНШОТ 3 -->
+                                <!-- Слайд 3 -->
                                 <div class="carousel-slide" data-index="2">
                                     <img src="images/Screenshot_3.jpg" alt="Скриншот 3">
                                 </div>
-                                <!-- точки -->
+                                <!-- Точки навигации -->
                                 <div class="slide-dots">
                                     <span class="active-dot" data-dot="0"></span>
                                     <span data-dot="1"></span>
@@ -620,7 +611,7 @@
             </div>
         </section>
 
-        <!-- ===== ПРЕМИУМ КНОПКА (БИРЮЗОВАЯ) ===== -->
+        <!-- ===== ПРЕМИУМ КНОПКА ===== -->
         <section class="premium-cta">
             <div class="container">
                 <button class="btn-premium" id="premiumBtn">
