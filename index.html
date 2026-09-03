@@ -28,7 +28,7 @@
             padding: 0 24px;
         }
 
-        /* ===== HEADER с иконкой ===== */
+        /* ===== HEADER ===== */
         .header {
             padding: 24px 0 16px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.04);
@@ -69,39 +69,7 @@
             margin-left: 6px;
         }
 
-        .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .btn-google-play-small {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: #1e293b;
-            color: white;
-            padding: 8px 16px 8px 14px;
-            border-radius: 40px;
-            font-weight: 600;
-            font-size: 0.85rem;
-            text-decoration: none;
-            border: 1px solid rgba(255,255,255,0.06);
-            transition: all 0.2s;
-        }
-
-        .btn-google-play-small:hover {
-            background: #2d3a4f;
-            transform: scale(1.02);
-        }
-
-        .btn-google-play-small img {
-            width: 18px;
-            height: 18px;
-            filter: brightness(0) invert(1);
-        }
-
-        /* ===== HERO: заголовок + телефон ===== */
+        /* ===== HERO ===== */
         .hero {
             padding: 48px 0 32px;
         }
@@ -149,7 +117,8 @@
             margin-top: 6px;
         }
 
-        .btn-google-play-hero {
+        /* ЕДИНСТВЕННАЯ КНОПКА GOOGLE PLAY */
+        .btn-google-play {
             display: inline-flex;
             align-items: center;
             gap: 10px;
@@ -164,18 +133,18 @@
             box-shadow: 0 8px 24px rgba(0,0,0,0.3);
         }
 
-        .btn-google-play-hero:hover {
+        .btn-google-play:hover {
             transform: translateY(-2px);
             box-shadow: 0 14px 30px rgba(0,0,0,0.4);
             background: #f1f5f9;
         }
 
-        .btn-google-play-hero img {
+        .btn-google-play img {
             width: 22px;
             height: 22px;
         }
 
-        /* Телефон-превью с каруселью */
+        /* Телефон с каруселью */
         .hero-visual {
             display: flex;
             justify-content: center;
@@ -211,7 +180,6 @@
             position: relative;
         }
 
-        /* карусель скриншотов (плавная смена) */
         .screenshot-carousel {
             width: 100%;
             height: 100%;
@@ -246,37 +214,11 @@
             position: relative;
         }
 
-        .slide-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-            text-align: center;
-        }
-
-        .slide-content .mock-icon {
-            font-size: 2.8rem;
-            background: #1e2a3f;
-            width: 70px;
-            height: 70px;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 6px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-        }
-
-        .slide-content h4 {
-            font-size: 1rem;
-            font-weight: 600;
-            color: white;
-        }
-
-        .slide-content p {
-            font-size: 0.75rem;
-            color: #94a3b8;
-            max-width: 80%;
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 24px;
         }
 
         .slide-dots {
@@ -294,6 +236,7 @@
             border-radius: 10px;
             display: block;
             transition: all 0.3s;
+            cursor: pointer;
         }
 
         .slide-dots span.active-dot {
@@ -301,7 +244,7 @@
             width: 18px;
         }
 
-        /* ===== Секция с описанием механик ===== */
+        /* ===== МЕХАНИКИ ===== */
         .mechanics {
             padding: 48px 0 36px;
             border-top: 1px solid rgba(255, 255, 255, 0.04);
@@ -343,7 +286,7 @@
             font-size: 0.9rem;
         }
 
-        /* ===== FAQ аккордеон ===== */
+        /* ===== FAQ ===== */
         .faq-section {
             padding: 40px 0 20px;
             border-top: 1px solid rgba(255, 255, 255, 0.04);
@@ -421,7 +364,7 @@
             padding: 0 24px 20px;
         }
 
-        /* ===== Кнопка Premium (Woap) ===== */
+        /* ===== ПРЕМИУМ КНОПКА (БИРЮЗОВАЯ) ===== */
         .premium-cta {
             padding: 40px 0 32px;
             border-top: 1px solid rgba(255, 255, 255, 0.04);
@@ -432,14 +375,14 @@
             display: inline-flex;
             align-items: center;
             gap: 14px;
-            background: linear-gradient(145deg, #f59e0b, #d97706);
+            background: linear-gradient(145deg, #2dd4bf, #14b8a6);
             color: #0f172a;
             font-weight: 700;
             font-size: 1.3rem;
             padding: 18px 44px;
             border-radius: 80px;
             text-decoration: none;
-            box-shadow: 0 12px 30px -8px rgba(245, 158, 11, 0.3);
+            box-shadow: 0 12px 30px -8px rgba(45, 212, 191, 0.3);
             transition: all 0.25s ease;
             border: none;
             cursor: pointer;
@@ -448,8 +391,8 @@
 
         .btn-premium:hover {
             transform: scale(1.03);
-            box-shadow: 0 20px 40px -10px rgba(245, 158, 11, 0.4);
-            background: linear-gradient(145deg, #fbbf24, #f59e0b);
+            box-shadow: 0 20px 40px -10px rgba(45, 212, 191, 0.4);
+            background: linear-gradient(145deg, #5eead4, #2dd4bf);
         }
 
         .btn-premium img {
@@ -458,7 +401,7 @@
             filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
         }
 
-        /* ===== Футер ===== */
+        /* ===== ФУТЕР ===== */
         .footer {
             border-top: 1px solid rgba(255, 255, 255, 0.04);
             padding: 24px 0 28px;
@@ -487,7 +430,7 @@
             color: #e2e8f0;
         }
 
-        /* ===== Адаптив ===== */
+        /* ===== АДАПТИВ ===== */
         @media (max-width: 900px) {
             .hero-grid {
                 grid-template-columns: 1fr;
@@ -554,17 +497,11 @@
     <header class="header">
         <div class="container header-inner">
             <div class="logo-block">
-                <!-- иконка PNG (заглушка, замените на свой путь) -->
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='14' fill='%232563eb'/%3E%3Ctext x='24' y='32' font-family='Inter, sans-serif' font-size='26' font-weight='800' fill='white' text-anchor='middle'%3EC%3C/text%3E%3C/svg%3E" alt="Caliperometry icon" class="logo-icon-img">
+                <!-- ВСТАВЬТЕ ВАШУ PNG ИКОНКУ -->
+                <img src="images/icon.png" alt="Caliperometry icon" class="logo-icon-img">
                 <div class="logo-text">
                     Caliperometry <span>Fat Calculator</span>
                 </div>
-            </div>
-            <div class="header-actions">
-                <a href="https://play.google.com/store/apps/details?id=com.SitiusInc.Caliperometry" target="_blank" class="btn-google-play-small">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M325.3 234.3L104.6 13.4C99.1 7.9 89.7 8.4 84.7 14.3L84.7 14.3C80.3 19.8 80.8 28.2 85.7 33.1L266.4 213.9L325.3 234.3zM104.6 498.6c-5.5 5.5-14.9 5.1-19.9-0.8L84.7 497.7c-5-5.9-4.5-14.3 0.9-19.2L213.9 352 325.3 277.7 104.6 498.6zM362.7 276.7L246.8 160.8 142.9 268.7l139.2 139.2 80.6-45.2c10.6-5.9 10.6-21.1 0-27.1l-0.1-0.1z' fill='white'/%3E%3C/svg%3E" alt="Google Play">
-                    Google Play
-                </a>
             </div>
         </div>
     </header>
@@ -581,8 +518,9 @@
                         Измеряйте кожно-жировые складки, анализируйте состав тела и отслеживайте прогресс с профессиональной точностью.
                     </p>
                     <div class="hero-actions">
-                        <a href="https://play.google.com/store/apps/details?id=com.SitiusInc.Caliperometry" target="_blank" class="btn-google-play-hero">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M325.3 234.3L104.6 13.4C99.1 7.9 89.7 8.4 84.7 14.3L84.7 14.3C80.3 19.8 80.8 28.2 85.7 33.1L266.4 213.9L325.3 234.3zM104.6 498.6c-5.5 5.5-14.9 5.1-19.9-0.8L84.7 497.7c-5-5.9-4.5-14.3 0.9-19.2L213.9 352 325.3 277.7 104.6 498.6zM362.7 276.7L246.8 160.8 142.9 268.7l139.2 139.2 80.6-45.2c10.6-5.9 10.6-21.1 0-27.1l-0.1-0.1z' fill='%230f172a'/%3E%3C/svg%3E" alt="Google Play">
+                        <!-- ЕДИНСТВЕННАЯ КНОПКА GOOGLE PLAY -->
+                        <a href="https://play.google.com/store/apps/details?id=com.SitiusInc.Caliperometry" target="_blank" class="btn-google-play">
+                            <img src="images/google-play-icon.png" alt="Google Play">
                             Доступно в Google Play
                         </a>
                     </div>
@@ -591,29 +529,17 @@
                     <div class="phone-mockup">
                         <div class="phone-screen">
                             <div class="screenshot-carousel">
-                                <!-- Слайд 1 -->
+                                <!-- Слайд 1: ВСТАВЬТЕ ВАШ СКРИНШОТ 1 -->
                                 <div class="carousel-slide active" data-index="0">
-                                    <div class="slide-content">
-                                        <div class="mock-icon">📊</div>
-                                        <h4>Анализ жировой массы</h4>
-                                        <p>7 точек измерения, автоматический расчёт</p>
-                                    </div>
+                                    <img src="images/screenshot1.jpg" alt="Скриншот 1">
                                 </div>
-                                <!-- Слайд 2 -->
+                                <!-- Слайд 2: ВСТАВЬТЕ ВАШ СКРИНШОТ 2 -->
                                 <div class="carousel-slide" data-index="1">
-                                    <div class="slide-content">
-                                        <div class="mock-icon">📈</div>
-                                        <h4>Графики прогресса</h4>
-                                        <p>Тренды и динамика изменений</p>
-                                    </div>
+                                    <img src="images/screenshot2.jpg" alt="Скриншот 2">
                                 </div>
-                                <!-- Слайд 3 -->
+                                <!-- Слайд 3: ВСТАВЬТЕ ВАШ СКРИНШОТ 3 -->
                                 <div class="carousel-slide" data-index="2">
-                                    <div class="slide-content">
-                                        <div class="mock-icon">🧬</div>
-                                        <h4>Состав тела</h4>
-                                        <p>Мышечная масса, соматотип, рекомендации</p>
-                                    </div>
+                                    <img src="images/screenshot3.jpg" alt="Скриншот 3">
                                 </div>
                                 <!-- точки -->
                                 <div class="slide-dots">
@@ -649,7 +575,7 @@
             </div>
         </section>
 
-        <!-- ===== FAQ АККОРДЕОН ===== -->
+        <!-- ===== FAQ ===== -->
         <section class="faq-section">
             <div class="container">
                 <h2 class="faq-title">Часто задаваемые вопросы</h2>
@@ -694,13 +620,13 @@
             </div>
         </section>
 
-        <!-- ===== ПРЕМИУМ КНОПКА (Woap) ===== -->
+        <!-- ===== ПРЕМИУМ КНОПКА (БИРЮЗОВАЯ) ===== -->
         <section class="premium-cta">
             <div class="container">
-                <a href="#" class="btn-premium" id="premiumBtn">
+                <button class="btn-premium" id="premiumBtn">
                     <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230f172a'%3E%3Cpath d='M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z'/%3E%3C/svg%3E" alt="star">
                     Активировать премиум
-                </a>
+                </button>
             </div>
         </section>
     </main>
@@ -715,12 +641,12 @@
     </footer>
 
     <script>
-        // ===== КАРУСЕЛЬ (плавная смена) =====
+        // ===== КАРУСЕЛЬ =====
         (function() {
             const slides = document.querySelectorAll('.carousel-slide');
             const dots = document.querySelectorAll('.slide-dots span');
             let current = 0;
-            let interval = 3000; // 3 сек
+            let interval = 3000;
 
             function goTo(index) {
                 slides.forEach((s, i) => {
@@ -737,10 +663,8 @@
                 goTo(next);
             }
 
-            // автосмена
             let timer = setInterval(nextSlide, interval);
 
-            // клик по точкам — переключение и сброс таймера
             dots.forEach((dot, idx) => {
                 dot.addEventListener('click', function(e) {
                     e.stopPropagation();
@@ -750,7 +674,6 @@
                 });
             });
 
-            // при наведении на телефон — пауза (опционально)
             const phone = document.querySelector('.phone-mockup');
             if (phone) {
                 phone.addEventListener('mouseenter', () => clearInterval(timer));
@@ -761,12 +684,11 @@
             }
         })();
 
-        // ===== АККОРДЕОН FAQ =====
+        // ===== АККОРДЕОН =====
         document.querySelectorAll('.accordion-item').forEach(item => {
             const header = item.querySelector('.accordion-header');
             header.addEventListener('click', function() {
                 const isActive = item.classList.contains('active');
-                // закрыть все
                 document.querySelectorAll('.accordion-item').forEach(el => el.classList.remove('active'));
                 if (!isActive) {
                     item.classList.add('active');
@@ -774,9 +696,8 @@
             });
         });
 
-        // ===== ПРЕМИУМ КНОПКА (демо-алерт) =====
-        document.getElementById('premiumBtn').addEventListener('click', function(e) {
-            e.preventDefault();
+        // ===== ПРЕМИУМ КНОПКА =====
+        document.getElementById('premiumBtn').addEventListener('click', function() {
             alert('🔥 Премиум-доступ через Woap (демо). Интеграция будет настроена.');
         });
     </script>
