@@ -86,7 +86,7 @@
             margin-bottom: 30px;
         }
 
-        /* Кнопка в стиле Google Play */
+        /* Кнопка в стиле Google Play (Безопасная версия без градиентных ссылок) */
         .google-play-badge {
             display: inline-flex;
             align-items: center;
@@ -103,6 +103,17 @@
             border-color: var(--accent-color);
             transform: translateY(-2px);
         }
+        
+        /* Иконка Google Play на чистом CSS полигоне */
+        .play-icon-css {
+            width: 0;
+            height: 0;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-left: 16px solid #10b981; /* Зеленый треугольник */
+            margin-right: 4px;
+        }
+
         .badge-text {
             display: flex;
             flex-direction: column;
@@ -315,7 +326,7 @@
     <div class="wrapper">
         
         <header>
-            <div class="logo">Caliperometry1</div>
+            <div class="logo">Caliperometry</div>
             <a href="#faq" class="nav-link">Поддержка / FAQ</a>
         </header>
 
@@ -325,9 +336,12 @@
                 <p>Профессиональный инструмент для точного расчета процентного содержания подкожного жира методом калиперометрии. Отслеживайте динамику изменений и управляйте формой на основе проверенных научных формул.</p>
                 
                 <a href="#" class="google-play-badge" target="_blank">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://w3.org">
-                        <path d="M3.23 2.3a1.44 1.44 0 0 0-.33.98v17.44c0 .38.12.73.33.98l.06.06L13.1 11.94v-.12L3.29 2.24l-.06.06Z" fill="url(#a)"/>
-                        <path d="M16.42 15.26 13.1 11.94v-.12l3.32-3.32.07.04 3.92 2.23c1.12.63 1.12 1.68 0 2.32l-3.92 2.23-.07-.08Z" fill="url(#b)"/>
-                        <path d="M13.22 11.88 3.23 2.14a1.07 1.07 0 0 0-.21-.1C3.41 1.83 4.14 2 5.03 2.5l11.39 6.47-3.2 3.2-1 .29Z" fill="url(#c)"/>
-                        <path d="M13.22 11.88l-3.2-3.2 3.2-3.2 1.4 1.4-1.4 5Z" fill="#000" opacity=".12"/>
+                    <div class="play-icon-css"></div>
+                    <div class="badge-text">
+                        <span class="top-txt">Доступно в</span>
+                        <span class="main-txt">Google Play</span>
+                    </div>
+                </a>
+            </div>
 
+            <div class="mockup-container">
