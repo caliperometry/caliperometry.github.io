@@ -93,11 +93,11 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0; /* Все скрыты по дефолту */
-            transition: opacity 0.8s ease-in-out; /* Плавный бленд-эффект смены */
+            opacity: 0; 
+            transition: opacity 0.8s ease-in-out; /* Эффект Cross-Fade */
         }
         .phone-screenshot.active {
-            opacity: 1; /* Показываем текущий активный скриншот */
+            opacity: 1; 
         }
 
         /* Центрированный блок под линией для Google Play */
@@ -192,21 +192,30 @@
             box-shadow: 0 12px 30px rgba(255, 90, 95, 0.5);
         }
 
+        /* Подвал по новой схеме (Разнесено по краям) */
         footer {
             padding: 40px 0;
-            text-align: center;
-            color: #64748b;
-            font-size: 13px;
             border-top: 1px solid #1e293b;
+            display: flex;
+            justify-content: space-between; /* Распихивает элементы по левому и правому краям */
+            align-items: center;
         }
-        .footer-links a { color: #64748b; margin: 0 12px; text-decoration: none; }
-        .footer-links a:hover { color: var(--accent-color); }
+        .footer-link {
+            color: #64748b;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+        .footer-link:hover {
+            color: var(--accent-color);
+        }
 
         @media (max-width: 768px) {
             .hero { grid-template-columns: 1fr; text-align: center; padding: 30px 0; }
             .mockup-container { order: -1; position: relative; top: 0; margin-bottom: 30px; }
             .hero-info h1 { font-size: 32px; }
             .phone-mockup { width: 230px; height: 470px; }
+            footer { flex-direction: column; gap: 15px; text-align: center; } /* На мобилках выстраиваем ссылки в столбик */
         }
     </style>
 </head>
@@ -227,7 +236,7 @@
             <div class="hero-info">
                 <h1>Caliperometry: Fat Calculator</h1>
                 
-                <!-- Блок текстов механик. Вы можете расширять его сколько угодно -->
+                <!-- Блок текстов механик -->
                 <p>Профессиональный инструмент для точного расчета процентного содержания подкожного жира методом калиперометрии. Отслеживайте динамику изменений и управляйте формой на основе проверенных научных формул.</p>
                 
                 <p>Приложение позволяет вам уйти от неточных напольных «умных» весов и использовать проверенные методы спортивной медицины. Измеряйте складки калипером, заносите данные в приложение и получайте чистую математику вашей физической формы.</p>
@@ -248,7 +257,7 @@
             </div>
         </section>
 
-        <!-- Кнопка Гугл Плей по центру под разделителем -->
+        <!-- Кнопка Гугл Плей по центру -->
         <section class="download-section">
             <a href="https://google.com" class="google-play-badge" target="_blank">
                 <img src="images/gp-icon.png" alt="Google Play" class="gp-png-icon">
@@ -262,5 +271,3 @@
         <!-- Аккордеон список FAQ -->
         <section class="faq-section" id="faq">
             <details class="faq-item">
-                <summary>Что такое калиперометрия?</summary>
-                <div class="faq-content">
