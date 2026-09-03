@@ -30,6 +30,7 @@
             padding: 0 20px;
         }
 
+        /* Шапка по вашей схеме */
         header {
             padding: 20px 0;
             display: flex;
@@ -38,144 +39,101 @@
             border-bottom: 1px solid var(--border-color);
         }
 
-        .logo { font-size: 22px; font-weight: bold; color: #fff; }
-        .nav-link { color: #94a3b8; text-decoration: none; font-size: 14px; }
+        .logo { 
+            font-size: 22px; 
+            font-weight: bold; 
+            color: #fff; 
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .logo-img {
+            width: 32px;  
+            height: 32px;
+            object-fit: contain;
+        }
+        .nav-link { color: #94a3b8; text-decoration: none; font-size: 15px; font-weight: 500; }
+        .nav-link:hover { color: var(--accent-color); }
 
-        /* Сетка главного экрана */
+        /* Сетка: Текст слева, телефон справа */
         .hero {
             padding: 60px 0;
             display: grid;
             grid-template-columns: 1.2fr 0.8fr;
-            gap: 40px;
+            gap: 50px;
             align-items: start;
         }
 
-        .hero-info h1 { font-size: 38px; margin-bottom: 15px; font-weight: 800; }
-        .hero-info p { font-size: 17px; color: #94a3b8; margin-bottom: 25px; }
+        .hero-info h1 { font-size: 40px; margin-bottom: 20px; font-weight: 800; color: #fff; }
+        .hero-info p { font-size: 17px; color: #94a3b8; margin-bottom: 20px; }
 
-        /* Контейнер для кнопок на главном экране */
-        .hero-buttons {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-            align-items: center;
+        /* Контейнер мокапа телефона */
+        .mockup-container { display: flex; justify-content: center; position: sticky; top: 40px; }
+        .phone-mockup {
+            width: 260px;
+            height: 530px;
+            background: #000;
+            border: 11px solid #334155;
+            border-radius: 38px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.6);
+            overflow: hidden; 
+            position: relative;
+        }
+        
+        /* Слайдер скриншотов с плавной сменой */
+        .screenshot-slider {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        .phone-screenshot {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0; /* Все скрыты по дефолту */
+            transition: opacity 0.8s ease-in-out; /* Плавный бленд-эффект смены */
+        }
+        .phone-screenshot.active {
+            opacity: 1; /* Показываем текущий активный скриншот */
         }
 
-        /* Официальный стиль кнопки Google Play с CSS-иконкой */
+        /* Центрированный блок под линией для Google Play */
+        .download-section {
+            padding: 40px 0;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+        }
+
         .google-play-badge {
             display: inline-flex;
             align-items: center;
             background-color: #000000;
             color: #fff;
-            padding: 10px 24px;
+            padding: 12px 32px;
             border-radius: 8px;
             text-decoration: none;
             border: 1px solid #475569;
             transition: all 0.2s;
-            height: 52px;
         }
         .google-play-badge:hover {
             border-color: var(--accent-color);
             transform: translateY(-2px);
             background-color: #05070c;
         }
-
-        /* Контейнер для сборки фирменного значка Google Play */
-        .gp-icon-container {
-            width: 28px;
-            height: 28px;
-            position: relative;
-            margin-right: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* Отрисовка четырех цветных сегментов оригинального логотипа */
-        .gp-part {
-            position: absolute;
-            width: 0;
-            height: 0;
-            border-style: solid;
-        }
-        .gp-blue {
-            border-width: 14px 0 14px 24px;
-            border-color: transparent transparent transparent #00a0e4;
-            left: 0; top: 0;
-            z-index: 1;
-        }
-        .gp-green {
-            border-width: 0 12px 14px 12px;
-            border-color: transparent transparent #00f076 transparent;
-            left: 4px; top: 0;
-            z-index: 2;
-        }
-        .gp-yellow {
-            border-width: 7px 0 7px 12px;
-            border-color: transparent transparent transparent #ffcc00;
-            right: 0; top: 7px;
-            z-index: 3;
-        }
-        .gp-red {
-            border-width: 14px 12px 0 12px;
-            border-color: #ff1a1a transparent transparent transparent;
-            left: 4px; bottom: 0;
-            z-index: 2;
-        }
-
+        .gp-png-icon { width: 26px; height: 26px; margin-right: 14px; object-fit: contain; }
         .badge-text { display: flex; flex-direction: column; text-align: left; }
         .badge-text .top-txt { font-size: 10px; text-transform: uppercase; color: #94a3b8; letter-spacing: 0.5px; }
         .badge-text .main-txt { font-size: 16px; font-weight: 700; line-height: 1.2; }
 
-        /* Стиль кнопки Whop */
-        .whop-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background-color: var(--whop-color);
-            color: white;
-            padding: 12px 28px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 16px;
-            transition: all 0.2s;
-            height: 52px;
-            box-shadow: 0 4px 12px rgba(255, 90, 95, 0.2);
-        }
-        .whop-button:hover { 
-            background-color: var(--whop-hover);
-            transform: translateY(-2px); 
-            box-shadow: 0 6px 18px rgba(255, 90, 95, 0.4);
-        }
-
-        /* Липкий мокап телефона */
-        .mockup-container { display: flex; justify-content: center; position: sticky; top: 40px; }
-        .phone-mockup {
-            width: 260px;
-            height: 500px;
-            background: var(--card-bg);
-            border: 10px solid #334155;
-            border-radius: 36px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-        }
-        .phone-text { color: var(--accent-color); font-weight: bold; font-size: 18px; }
-        .phone-text span { display: block; font-size: 13px; color: #64748b; margin-top: 5px; }
-
         /* Раздел FAQ */
         .faq-section {
-            padding: 60px 0;
-            border-top: 1px solid var(--border-color);
+            padding: 40px 0;
             max-width: 750px;
             margin: 0 auto;
         }
-        .faq-section h2 { font-size: 28px; margin-bottom: 25px; text-align: center; }
-
         .faq-item {
             background-color: var(--card-bg);
             margin-bottom: 12px;
@@ -183,98 +141,126 @@
             border: 1px solid var(--border-color);
         }
         .faq-item summary {
-            padding: 18px;
-            font-size: 16px;
+            padding: 18px 24px;
+            font-size: 17px;
             font-weight: bold;
             cursor: pointer;
             outline: none;
             user-select: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
+        .faq-item summary::after { content: '+'; color: var(--accent-color); font-size: 20px; }
+        .faq-item[open] summary::after { content: '−'; color: var(--whop-color); }
         .faq-content {
-            padding: 0 18px 18px 18px;
+            padding: 0 24px 24px 24px;
             color: #cbd5e1;
             font-size: 15px;
+            border-top: 1px solid #273549;
+            padding-top: 15px;
         }
 
-        /* Премиум секция Whop внизу */
+        /* Большая красивая премиум секция Whop */
         .premium-section {
-            padding: 50px 20px;
+            padding: 60px 20px;
             text-align: center;
             border-top: 1px solid var(--border-color);
-            background: linear-gradient(180deg, #0f172a 0%, #1e1b4b 100%);
-            border-radius: 12px;
+            background: linear-gradient(180deg, #0f172a 0%, #17153b 100%);
+            border-radius: 16px;
             margin: 40px 0;
+            border: 1px solid #1e1b4b;
         }
-        .premium-section h2 { font-size: 28px; margin-bottom: 10px; }
-        .premium-section p { color: #94a3b8; margin-bottom: 25px; }
+        .premium-section h2 { font-size: 32px; margin-bottom: 15px; font-weight: 800; }
+        .premium-section p { color: #94a3b8; margin-bottom: 35px; font-size: 16px; max-width: 600px; margin-left: auto; margin-right: auto; }
+        
+        .whop-button {
+            display: inline-block;
+            background-color: var(--whop-color);
+            color: white;
+            padding: 18px 50px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            transition: all 0.2s;
+            box-shadow: 0 10px 25px rgba(255, 90, 95, 0.3);
+        }
+        .whop-button:hover { 
+            transform: translateY(-2px); 
+            background-color: var(--whop-hover);
+            box-shadow: 0 12px 30px rgba(255, 90, 95, 0.5);
+        }
 
         footer {
-            padding: 30px 0;
+            padding: 40px 0;
             text-align: center;
             color: #64748b;
             font-size: 13px;
             border-top: 1px solid #1e293b;
         }
-        .footer-links a { color: #64748b; margin: 0 10px; text-decoration: none; }
+        .footer-links a { color: #64748b; margin: 0 12px; text-decoration: none; }
+        .footer-links a:hover { color: var(--accent-color); }
 
         @media (max-width: 768px) {
-            .hero { grid-template-columns: 1fr; text-align: center; }
-            .mockup-container { order: -1; position: relative; top: 0; margin-bottom: 20px; }
-            .hero-info h1 { font-size: 30px; }
-            .hero-buttons { justify-content: center; }
+            .hero { grid-template-columns: 1fr; text-align: center; padding: 30px 0; }
+            .mockup-container { order: -1; position: relative; top: 0; margin-bottom: 30px; }
+            .hero-info h1 { font-size: 32px; }
+            .phone-mockup { width: 230px; height: 470px; }
         }
     </style>
 </head>
 <body>
     <div class="wrapper">
         
+        <!-- Шапка -->
         <header>
-            <div class="logo">Caliperometry</div>
-            <a href="#faq" class="nav-link">Поддержка / FAQ</a>
+            <div class="logo">
+                <img src="images/logo-icon.png" alt="Logo" class="logo-img"> 
+                Caliperometry
+            </div>
+            <a href="#faq" class="nav-link">FAQ</a>
         </header>
 
+        <!-- Презентация приложения -->
         <section class="hero">
             <div class="hero-info">
                 <h1>Caliperometry: Fat Calculator</h1>
+                
+                <!-- Блок текстов механик. Вы можете расширять его сколько угодно -->
                 <p>Профессиональный инструмент для точного расчета процентного содержания подкожного жира методом калиперометрии. Отслеживайте динамику изменений и управляйте формой на основе проверенных научных формул.</p>
                 
-                <p style="margin-bottom: 30px;">Сюда вы можете вставить вторую часть вашей презентации приложения. Опишите интерфейс, историю создания или детальные спортивные алгоритмы. Благодаря свойству "sticky" в коде, макет смартфона справа будет плавно скользить за экраном, пока пользователь читает этот блок текста, создавая потрясающий визуальный эффект на ноутбуках!</p>
-
-                <!-- Контейнер с двумя коммерческими кнопками -->
-                <div class="hero-buttons">
-                    <!-- Кнопка Google Play -->
-                    <a href="https://google.com" class="google-play-badge" target="_blank">
-                        <div class="gp-icon-container">
-                            <div class="gp-part gp-blue"></div>
-                            <div class="gp-part gp-green"></div>
-                            <div class="gp-part gp-yellow"></div>
-                            <div class="gp-part gp-red"></div>
-                        </div>
-                        <div class="badge-text">
-                            <span class="top-txt">Доступно в</span>
-                            <span class="main-txt">Google Play</span>
-                        </div>
-                    </a>
-
-                    <!-- Верхняя кнопка Купить на Whop -->
-                    <a href="https://whop.com" class="whop-button" target="_blank">
-                        Купить ключ Whop
-                    </a>
-                </div>
+                <p>Приложение позволяет вам уйти от неточных напольных «умных» весов и использовать проверенные методы спортивной медицины. Измеряйте складки калипером, заносите данные в приложение и получайте чистую математику вашей физической формы.</p>
+                
+                <p>Поддержка формул Джексона-Поллока (на 3 и 7 точек), алгоритмов Сири, Брожека и Ложмана позволяет настроить расчеты индивидуально под ваш тип телосложения. Все данные визуализируются в удобные графики прогресса.</p>
             </div>
             
+            <!-- Мокап телефона со слайдером скриншотов -->
             <div class="mockup-container">
                 <div class="phone-mockup">
-                    <div class="phone-text">
-                        Caliperometry
-                        <span>Интерфейс калькулятора</span>
+                    <div class="screenshot-slider">
+                        <!-- Ваши скриншоты в папке images -->
+                        <img src="images/screenshot1.png" alt="Скриншот 1" class="phone-screenshot active">
+                        <img src="images/screenshot2.png" alt="Скриншот 2" class="phone-screenshot">
+                        <img src="images/screenshot3.png" alt="Скриншот 3" class="phone-screenshot">
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Кнопка Гугл Плей по центру под разделителем -->
+        <section class="download-section">
+            <a href="https://google.com" class="google-play-badge" target="_blank">
+                <img src="images/gp-icon.png" alt="Google Play" class="gp-png-icon">
+                <div class="badge-text">
+                    <span class="top-txt">Доступно в</span>
+                    <span class="main-txt">Google Play</span>
+                </div>
+            </a>
+        </section>
+
+        <!-- Аккордеон список FAQ -->
         <section class="faq-section" id="faq">
-            <h2>Часто задаваемые вопросы (FAQ)</h2>
-            
             <details class="faq-item">
                 <summary>Что такое калиперометрия?</summary>
+                <div class="faq-content">
