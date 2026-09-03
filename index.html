@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Caliperometry — Официальный сайт приложения</title>
+    <!-- Подключаем безопасную библиотеку иконок (аналог шрифтового атласа в Unity) -->
+    <link rel="stylesheet" href="https://cloudflare.com">
     <style>
         :root {
             --bg-color: #0f172a;
@@ -37,62 +39,103 @@
             border-bottom: 1px solid var(--border-color);
         }
 
-        .logo { font-size: 22px; font-weight: bold; color: #fff; }
+        /* Логотип с иконкой */
+        .logo { 
+            font-size: 22px; 
+            font-weight: bold; 
+            color: #fff; 
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+        }
+        .logo i { color: var(--accent-color); }
+
         .nav-link { color: #94a3b8; text-decoration: none; font-size: 14px; }
 
-        /* Сетка главного экрана */
+        /* Главный экран, адаптированный под огромный объем текста */
         .hero {
-            padding: 60px 0;
+            padding: 80px 0;
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
+            grid-template-columns: 1.2fr 0.8fr; /* Чуть расширили колонку для текста */
+            gap: 50px;
+            align-items: start; /* Выравнивание по верхнему краю для эффекта прилипания */
         }
 
-        .hero-info h1 { font-size: 38px; margin-bottom: 15px; font-weight: 800; }
-        .hero-info p { font-size: 17px; color: #94a3b8; margin-bottom: 25px; }
+        .hero-info h1 { font-size: 42px; margin-bottom: 20px; font-weight: 800; line-height: 1.2; }
+        .hero-info p { font-size: 18px; color: #94a3b8; margin-bottom: 30px; }
 
-        /* Простая и надежная кнопка */
+        /* Красивая кнопка Google Play с оригинальной иконкой */
         .google-play-badge {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
             background-color: #000000;
             color: #fff;
             padding: 12px 28px;
             border-radius: 8px;
             text-decoration: none;
-            border: 1px solid var(--border-color);
-            font-weight: bold;
-            font-size: 16px;
-            text-align: center;
+            border: 1px solid #475569;
+            transition: all 0.2s;
         }
-        .google-play-badge:hover { border-color: var(--accent-color); }
+        .google-play-badge:hover { 
+            border-color: var(--accent-color); 
+            transform: translateY(-2px);
+            background-color: #05070c;
+        }
+        .google-play-badge i {
+            font-size: 24px;
+            margin-right: 12px;
+            /* Градиентное окрашивание иконки через CSS */
+            background: linear-gradient(45deg, #00a0e4, #00f076, #ffcc00, #ff1a1a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .badge-text { display: flex; flex-direction: column; text-align: left; }
+        .badge-text .top-txt { font-size: 10px; text-transform: uppercase; color: #94a3b8; letter-spacing: 0.5px; }
+        .badge-text .main-txt { font-size: 18px; font-weight: 700; line-height: 1.2; }
 
-        /* Мокап телефона */
-        .mockup-container { display: flex; justify-content: center; }
+        /* Контейнер мокапа с эффектом "Липкой камеры" (position: sticky) */
+        .mockup-container { 
+            display: flex; 
+            justify-content: center; 
+            position: sticky; 
+            top: 40px; /* Телефон замрет в 40px от верха экрана при прокрутке текста */
+        }
         .phone-mockup {
-            width: 260px;
-            height: 500px;
+            width: 270px;
+            height: 540px;
             background: var(--card-bg);
-            border: 10px solid #334155;
-            border-radius: 36px;
+            border: 12px solid #334155;
+            border-radius: 40px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.6);
+            position: relative;
         }
-        .phone-text { color: var(--accent-color); font-weight: bold; font-size: 18px; }
+        /* Небольшая челка телефона сверху для реализма */
+        .phone-mockup::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 120px;
+            height: 15px;
+            background: #334155;
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+        }
+        .phone-text { color: var(--accent-color); font-weight: bold; font-size: 19px; }
         .phone-text span { display: block; font-size: 13px; color: #64748b; margin-top: 5px; }
 
         /* Раздел FAQ */
         .faq-section {
-            padding: 60px 0;
+            padding: 80px 0;
             border-top: 1px solid var(--border-color);
             max-width: 750px;
             margin: 0 auto;
         }
-        .faq-section h2 { font-size: 28px; margin-bottom: 25px; text-align: center; }
+        .faq-section h2 { font-size: 32px; margin-bottom: 30px; text-align: center; font-weight: 800; }
 
         .faq-item {
             background-color: var(--card-bg);
@@ -101,43 +144,54 @@
             border: 1px solid var(--border-color);
         }
         .faq-item summary {
-            padding: 18px;
-            font-size: 16px;
+            padding: 18px 24px;
+            font-size: 17px;
             font-weight: bold;
             cursor: pointer;
             outline: none;
             user-select: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
+        .faq-item summary::after { content: '+'; color: var(--accent-color); font-size: 20px; }
+        .faq-item[open] summary::after { content: '−'; color: var(--whop-color); }
+
         .faq-content {
-            padding: 0 18px 18px 18px;
+            padding: 0 24px 24px 24px;
             color: #cbd5e1;
             font-size: 15px;
+            border-top: 1px solid #273549;
+            padding-top: 15px;
         }
 
         /* Премиум секция Whop */
         .premium-section {
-            padding: 50px 20px;
+            padding: 60px 20px;
             text-align: center;
             border-top: 1px solid var(--border-color);
             background: linear-gradient(180deg, #0f172a 0%, #1e1b4b 100%);
             border-radius: 12px;
             margin: 40px 0;
         }
-        .premium-section h2 { font-size: 28px; margin-bottom: 10px; }
-        .premium-section p { color: #94a3b8; margin-bottom: 25px; }
+        .premium-section h2 { font-size: 32px; margin-bottom: 15px; font-weight: 800; }
+        .premium-section p { color: #94a3b8; margin-bottom: 30px; font-size: 16px; }
         
         .whop-button {
             display: inline-block;
             background-color: var(--whop-color);
             color: white;
-            padding: 14px 36px;
-            border-radius: 25px;
+            padding: 16px 40px;
+            border-radius: 30px;
             text-decoration: none;
             font-weight: bold;
+            font-size: 17px;
+            transition: all 0.2s;
         }
+        .whop-button:hover { transform: translateY(-2px); background-color: #e0484d; }
 
         footer {
-            padding: 30px 0;
+            padding: 40px 0;
             text-align: center;
             color: #64748b;
             font-size: 13px;
@@ -147,30 +201,43 @@
 
         /* Мобильная адаптивность */
         @media (max-width: 768px) {
-            .hero { grid-template-columns: 1fr; text-align: center; }
-            .mockup-container { order: -1; }
-            .hero-info h1 { font-size: 30px; }
+            .hero { grid-template-columns: 1fr; text-align: center; padding: 40px 0; }
+            .mockup-container { order: -1; position: relative; top: 0; margin-bottom: 20px; }
+            .hero-info h1 { font-size: 32px; }
         }
     </style>
 </head>
 <body>
     <div class="wrapper">
         
-        <!-- Шапка -->
+        <!-- Шапка с иконкой в логотипе (иконка калькулятора/сердца) -->
         <header>
-            <div class="logo">Caliperometry</div>
+            <div class="logo">
+                <i class="fa-solid :root fa-calculator"></i> Caliperometry
+            </div>
             <a href="#faq" class="nav-link">Поддержка / FAQ</a>
         </header>
 
-        <!-- Презентация приложения -->
+        <!-- Презентация приложения (Сюда вы можете вставить очень длинный текст) -->
         <section class="hero">
             <div class="hero-info">
                 <h1>Caliperometry: Fat Calculator</h1>
                 <p>Профессиональный инструмент для точного расчета процентного содержания подкожного жира методом калиперометрии. Отслеживайте динамику изменений и управляйте формой на основе проверенных научных формул.</p>
-                <a href="https://play.google.com/" class="google-play-badge" target="_blank">
-                    Скачать в Google Play
+                
+                <!-- Тестовый блок: продублируйте или увеличьте этот текст, когда будете наполнять страницу презентацией -->
+                <p style="margin-bottom: 30px;">Сюда вы можете вставить вторую часть вашей презентации приложения. Опишите интерфейс, историю создания или детальные спортивные алгоритмы. Благодаря свойству "sticky" в коде, макет смартфона справа будет плавно скользить за экраном, пока пользователь читает этот блок текста, создавая потрясающий визуальный эффект на ноутбуках!</p>
+
+                <!-- Кнопка Google Play с оригинальной разноцветной иконкой -->
+                <a href="https://google.com" class="google-play-badge" target="_blank">
+                    <i class="fa-brands fa-google-play"></i>
+                    <div class="badge-text">
+                        <span class="top-txt">Доступно в</span>
+                        <span class="main-txt">Google Play</span>
+                    </div>
                 </a>
             </div>
+            
+            <!-- Липкий контейнер телефона -->
             <div class="mockup-container">
                 <div class="phone-mockup">
                     <div class="phone-text">
@@ -188,43 +255,6 @@
             <details class="faq-item">
                 <summary>Что такое калиперометрия?</summary>
                 <div class="faq-content">
-                    Это научно обоснованный метод измерения толщины кожно-жировых складок с помощью специального прибора (калипера). Метод позволяет определить процент жировой массы точнее, чем обычные напольные весы-анализаторы.
-                </div>
-            </details>
 
-            <details class="faq-item">
-                <summary>Какие формулы расчета используются в приложении?</summary>
-                <div class="faq-content">
-                    Приложение поддерживает классические формулы: 3-х и 7-ми точечные методы Джексона-Поллока, формулу Ложмана, а также алгоритмы Сири и Брожека для вычисления итоговой плотности тела.
-                </div>
-            </details>
-
-            <details class="faq-item">
-                <summary>Защищены ли мои персональные данные?</summary>
-                <div class="faq-content">
-                    Да, приложение работает полностью локально на вашем устройстве. Все замеры, антропометрические данные и история расчетов сохраняются исключительно в памяти смартфона и не передаются на сторонние серверы.
-                </div>
-            </details>
-        </section>
-
-        <!-- Whop монетизация -->
-        <section class="premium-section">
-            <h2>Получите PRO-версию на Whop</h2>
-            <p>Откройте доступ к расширенной аналитике, неограниченному количеству профилей для тренеров, экспорту отчетов в PDF и кастомным формулам расчета.</p>
-            <a href="https://whop.com" class="whop-button" target="_blank">Активировать PRO на Whop</a>
-        </section>
-
-        <!-- Подвал -->
-        <footer>
-            <p>© 2026 Caliperometry App. Все права защищены.</p>
-            <div class="footer-links" style="margin-top: 10px;">
-                <a href="#" target="_blank">Privacy Policy</a> | 
-                <a href="#" target="_blank">Terms of Service</a>
-            </div>
-        </footer>
-
-    </div>
-</body>
-</html>
 
             <div class="mockup-container">
