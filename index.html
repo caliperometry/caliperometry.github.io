@@ -8,24 +8,14 @@
         :root {
             --bg-color: #0f172a;
             --text-color: #f8fafc;
-            --accent-color: #38bdf8; /* Голубой кибер-стиль */
-            --accent-hover: #0ea5e9;
+            --accent-color: #38bdf8;
             --card-bg: #1e293b;
             --whop-color: #ff5a5f;
-            --whop-hover: #e0484d;
             --border-color: #334155;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        }
+        html { scroll-behavior: smooth; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; }
 
         body {
             background-color: var(--bg-color);
@@ -34,7 +24,7 @@
         }
 
         .wrapper {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 0 20px;
         }
@@ -47,301 +37,194 @@
             border-bottom: 1px solid var(--border-color);
         }
 
-        .logo {
-            font-size: 22px;
-            font-weight: bold;
-            color: #fff;
-            letter-spacing: 0.5px;
-        }
+        .logo { font-size: 22px; font-weight: bold; color: #fff; }
+        .nav-link { color: #94a3b8; text-decoration: none; font-size: 14px; }
 
-        .nav-link {
-            color: #94a3b8;
-            text-decoration: none;
-            font-size: 14px;
-            transition: color 0.2s;
-        }
-        .nav-link:hover {
-            color: var(--accent-color);
-        }
-
-        /* Главный экран: Адаптивная двухколоночная сетка */
+        /* Сетка главного экрана */
         .hero {
-            padding: 80px 0;
+            padding: 60px 0;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 40px;
             align-items: center;
         }
 
-        .hero-info h1 {
-            font-size: 42px;
-            margin-bottom: 15px;
-            font-weight: 800;
-            line-height: 1.2;
-        }
+        .hero-info h1 { font-size: 38px; margin-bottom: 15px; font-weight: 800; }
+        .hero-info p { font-size: 17px; color: #94a3b8; margin-bottom: 25px; }
 
-        .hero-info p {
-            font-size: 18px;
-            color: #94a3b8;
-            margin-bottom: 30px;
-        }
-
-        /* Кнопка в стиле Google Play (Безопасная версия без градиентных ссылок) */
+        /* Простая и надежная кнопка */
         .google-play-badge {
-            display: inline-flex;
-            align-items: center;
+            display: inline-block;
             background-color: #000000;
             color: #fff;
-            padding: 10px 24px;
+            padding: 12px 28px;
             border-radius: 8px;
             text-decoration: none;
-            border: 1px solid #475569;
-            transition: transform 0.2s, background-color 0.2s, border-color 0.2s;
-        }
-        .google-play-badge:hover {
-            background-color: #0b0f19;
-            border-color: var(--accent-color);
-            transform: translateY(-2px);
-        }
-        
-        /* Иконка Google Play на чистом CSS полигоне */
-        .play-icon-css {
-            width: 0;
-            height: 0;
-            border-top: 10px solid transparent;
-            border-bottom: 10px solid transparent;
-            border-left: 16px solid #10b981; /* Зеленый треугольник */
-            margin-right: 4px;
-        }
-
-        .badge-text {
-            display: flex;
-            flex-direction: column;
-            margin-left: 12px;
-            text-align: left;
-        }
-        .badge-text .top-txt {
-            font-size: 10px;
-            text-transform: uppercase;
-            color: #94a3b8;
-            letter-spacing: 0.5px;
-        }
-        .badge-text .main-txt {
-            font-size: 18px;
-            font-weight: 700;
-            line-height: 1.2;
-        }
-
-        /* Визуальный мокап смартфона для ноутбуков */
-        .mockup-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .phone-mockup {
-            width: 270px;
-            height: 540px;
-            background: #1e293b;
-            border: 10px solid #334155;
-            border-radius: 40px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
-            border-bottom-width: 14px;
-            border-top-width: 14px;
-        }
-        .phone-screen-content {
-            text-align: center;
-            color: var(--accent-color);
+            border: 1px solid var(--border-color);
             font-weight: bold;
-            font-size: 20px;
-            letter-spacing: 1px;
+            font-size: 16px;
+            text-align: center;
         }
-        .phone-screen-content span {
-            display: block;
-            font-size: 13px;
-            color: #64748b;
-            margin-top: 8px;
-            font-weight: normal;
+        .google-play-badge:hover { border-color: var(--accent-color); }
+
+        /* Мокап телефона */
+        .mockup-container { display: flex; justify-content: center; }
+        .phone-mockup {
+            width: 260px;
+            height: 500px;
+            background: var(--card-bg);
+            border: 10px solid #334155;
+            border-radius: 36px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
         }
+        .phone-text { color: var(--accent-color); font-weight: bold; font-size: 18px; }
+        .phone-text span { display: block; font-size: 13px; color: #64748b; margin-top: 5px; }
 
         /* Раздел FAQ */
         .faq-section {
-            padding: 80px 0;
+            padding: 60px 0;
             border-top: 1px solid var(--border-color);
             max-width: 750px;
             margin: 0 auto;
         }
+        .faq-section h2 { font-size: 28px; margin-bottom: 25px; text-align: center; }
 
-        .faq-section h2 {
-            font-size: 32px;
-            margin-bottom: 30px;
-            text-align: center;
-            font-weight: 800;
-        }
-
-        /* Стили выпадающих списков (аккордеон) */
         .faq-item {
             background-color: var(--card-bg);
             margin-bottom: 12px;
             border-radius: 8px;
             border: 1px solid var(--border-color);
-            overflow: hidden;
-            transition: border-color 0.2s;
         }
-        .faq-item:hover {
-            border-color: #475569;
-        }
-        
         .faq-item summary {
-            padding: 18px 24px;
-            font-size: 17px;
-            font-weight: 600;
-            color: #fff;
+            padding: 18px;
+            font-size: 16px;
+            font-weight: bold;
             cursor: pointer;
-            list-style: none;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            outline: none;
             user-select: none;
         }
-        .faq-item summary::after {
-            content: '+';
-            font-size: 20px;
-            color: var(--accent-color);
-            transition: transform 0.2s;
-            font-weight: bold;
-        }
-        .faq-item[open] summary::after {
-            transform: rotate(45deg);
-            color: var(--whop-color);
-        }
-        .faq-item summary::-webkit-details-marker {
-            display: none;
-        }
-        
         .faq-content {
-            padding: 0 24px 20px 24px;
+            padding: 0 18px 18px 18px;
             color: #cbd5e1;
             font-size: 15px;
-            border-top: 1px solid #273549;
-            padding-top: 15px;
         }
 
-        /* Секция монетизации Whop */
+        /* Премиум секция Whop */
         .premium-section {
-            padding: 60px 20px;
+            padding: 50px 20px;
             text-align: center;
             border-top: 1px solid var(--border-color);
-            background: linear-gradient(180deg, #0f172a 0%, #17153b 100%);
-            border-radius: 16px;
+            background: linear-gradient(180deg, #0f172a 0%, #1e1b4b 100%);
+            border-radius: 12px;
             margin: 40px 0;
-            border: 1px solid #1e1b4b;
         }
-
-        .premium-section h2 {
-            font-size: 32px;
-            margin-bottom: 15px;
-            font-weight: 800;
-        }
-
-        .premium-section p {
-            color: #94a3b8;
-            margin-bottom: 30px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            font-size: 16px;
-        }
-
+        .premium-section h2 { font-size: 28px; margin-bottom: 10px; }
+        .premium-section p { color: #94a3b8; margin-bottom: 25px; }
+        
         .whop-button {
             display: inline-block;
             background-color: var(--whop-color);
             color: white;
-            padding: 16px 44px;
-            border-radius: 30px;
+            padding: 14px 36px;
+            border-radius: 25px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 18px;
-            box-shadow: 0 10px 25px rgba(255, 90, 95, 0.25);
-            transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
-        }
-
-        .whop-button:hover {
-            background-color: var(--whop-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 12px 30px rgba(255, 90, 95, 0.4);
         }
 
         footer {
-            padding: 40px 0;
+            padding: 30px 0;
             text-align: center;
             color: #64748b;
             font-size: 13px;
             border-top: 1px solid #1e293b;
         }
-        .footer-links a {
-            color: #64748b;
-            margin: 0 12px;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-        .footer-links a:hover {
-            color: var(--accent-color);
-        }
+        .footer-links a { color: #64748b; margin: 0 10px; text-decoration: none; }
 
+        /* Мобильная адаптивность */
         @media (max-width: 768px) {
-            .hero {
-                grid-template-columns: 1fr;
-                text-align: center;
-                padding: 40px 0;
-                gap: 30px;
-            }
-            .hero-info h1 {
-                font-size: 32px;
-            }
-            .hero-info p {
-                font-size: 16px;
-            }
-            .mockup-container {
-                order: -1;
-            }
-            .phone-mockup {
-                width: 220px;
-                height: 440px;
-            }
-            .faq-section h2, .premium-section h2 {
-                font-size: 26px;
-            }
-            .faq-item summary {
-                padding: 16px 20px;
-                font-size: 15px;
-            }
+            .hero { grid-template-columns: 1fr; text-align: center; }
+            .mockup-container { order: -1; }
+            .hero-info h1 { font-size: 30px; }
         }
     </style>
 </head>
 <body>
     <div class="wrapper">
         
+        <!-- Шапка -->
         <header>
             <div class="logo">Caliperometry</div>
             <a href="#faq" class="nav-link">Поддержка / FAQ</a>
         </header>
 
+        <!-- Презентация приложения -->
         <section class="hero">
             <div class="hero-info">
                 <h1>Caliperometry: Fat Calculator</h1>
                 <p>Профессиональный инструмент для точного расчета процентного содержания подкожного жира методом калиперометрии. Отслеживайте динамику изменений и управляйте формой на основе проверенных научных формул.</p>
-                
-                <a href="#" class="google-play-badge" target="_blank">
-                    <div class="play-icon-css"></div>
-                    <div class="badge-text">
-                        <span class="top-txt">Доступно в</span>
-                        <span class="main-txt">Google Play</span>
-                    </div>
+                <a href="https://play.google.com/" class="google-play-badge" target="_blank">
+                    Скачать в Google Play
                 </a>
             </div>
+            <div class="mockup-container">
+                <div class="phone-mockup">
+                    <div class="phone-text">
+                        Caliperometry
+                        <span>Интерфейс калькулятора</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Раздел вопросов и ответов -->
+        <section class="faq-section" id="faq">
+            <h2>Часто задаваемые вопросы (FAQ)</h2>
+            
+            <details class="faq-item">
+                <summary>Что такое калиперометрия?</summary>
+                <div class="faq-content">
+                    Это научно обоснованный метод измерения толщины кожно-жировых складок с помощью специального прибора (калипера). Метод позволяет определить процент жировой массы точнее, чем обычные напольные весы-анализаторы.
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary>Какие формулы расчета используются в приложении?</summary>
+                <div class="faq-content">
+                    Приложение поддерживает классические формулы: 3-х и 7-ми точечные методы Джексона-Поллока, формулу Ложмана, а также алгоритмы Сири и Брожека для вычисления итоговой плотности тела.
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary>Защищены ли мои персональные данные?</summary>
+                <div class="faq-content">
+                    Да, приложение работает полностью локально на вашем устройстве. Все замеры, антропометрические данные и история расчетов сохраняются исключительно в памяти смартфона и не передаются на сторонние серверы.
+                </div>
+            </details>
+        </section>
+
+        <!-- Whop монетизация -->
+        <section class="premium-section">
+            <h2>Получите PRO-версию на Whop</h2>
+            <p>Откройте доступ к расширенной аналитике, неограниченному количеству профилей для тренеров, экспорту отчетов в PDF и кастомным формулам расчета.</p>
+            <a href="https://whop.com" class="whop-button" target="_blank">Активировать PRO на Whop</a>
+        </section>
+
+        <!-- Подвал -->
+        <footer>
+            <p>© 2026 Caliperometry App. Все права защищены.</p>
+            <div class="footer-links" style="margin-top: 10px;">
+                <a href="#" target="_blank">Privacy Policy</a> | 
+                <a href="#" target="_blank">Terms of Service</a>
+            </div>
+        </footer>
+
+    </div>
+</body>
+</html>
 
             <div class="mockup-container">
