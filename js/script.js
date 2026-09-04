@@ -64,5 +64,5 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // ===== ПРЕМИУМ КНОПКА =====
 document.getElementById('premiumBtn').addEventListener('click', function() {
-    alert('🔥 Премиум-доступ через Woap (демо). Интеграция будет настроена.');
+    alert('🔥 Премиум-доступ через Woap (демо). Интеграция скоро будет настроена.');
 });
