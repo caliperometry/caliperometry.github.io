@@ -344,10 +344,19 @@ body {
 }
 
 .accordion-item.active .accordion-body {
-    max-height: 2000px;  /* Увеличил, чтобы текст точно помещался */
+    max-height: 2000px;
     padding: 0 24px 20px;
 }
 
+/* 👇 ДОБАВЛЕНО: красная строка для абзацев */
+.accordion-body p {
+    text-indent: 1.5em;  /* Отступ первой строки */
+    margin-bottom: 16px; /* Отступ между абзацами */
+}
+
+.accordion-body p:last-child {
+    margin-bottom: 0;    /* У последнего абзаца убираем отступ */
+}
 /* ===== ПРЕМИУМ КНОПКА ===== */
 .premium-cta {
     padding: 40px 0 32px;
