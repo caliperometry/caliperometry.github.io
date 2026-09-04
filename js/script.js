@@ -52,6 +52,15 @@ document.querySelectorAll('.accordion-item').forEach(item => {
         }
     });
 });
+// ===== ЗАКРЫВАЕМ ВСЕ, КРОМЕ ПЕРВОГО =====
+document.addEventListener('DOMContentLoaded', function() {
+    const items = document.querySelectorAll('.accordion-item');
+    items.forEach((item, index) => {
+        if (index !== 0) {
+            item.classList.remove('active');
+        }
+    });
+});
 
 // ===== ПРЕМИУМ КНОПКА =====
 document.getElementById('premiumBtn').addEventListener('click', function() {
