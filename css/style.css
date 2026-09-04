@@ -344,7 +344,7 @@ body {
 }
 
 .accordion-item.active .accordion-body {
-    max-height: 200px;
+    max-height: 2000px;  /* Увеличил, чтобы текст точно помещался */
     padding: 0 24px 20px;
 }
 
